@@ -6,9 +6,9 @@ Use best practices for code organization, including modularization and separatio
  
 Create database of the actual workouts
 
-● Use Nest.JS to create a backend API that retrieves and stores workout data using Firebase.
+● Use ExpressJS to create a backend API that retrieves and stores workout data using Firebase.
 
-● Use Angular to create a frontend dashboard:
+● Use React to create a frontend dashboard:
 workout data
 progress over time
 
@@ -19,4 +19,4 @@ workout plans
 social sharing
 workout analytics.
 tests for the backend API and/or frontend components.
-Deploying the app to a cloud provider (e.g., AWS, Heroku, or Firebase Hosting).
+Deploying the app to a cloud provider | Firebase Hosting.

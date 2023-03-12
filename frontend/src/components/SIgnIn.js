@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import firebase from "firebase";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
-const SignIn = () => {
+const SignIn = ({setLogIn}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLogIn(false)
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -19,6 +22,7 @@ const SignIn = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+
       });
   };
 

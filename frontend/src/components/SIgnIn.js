@@ -9,14 +9,14 @@ const SignIn = ({setLogIn}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setLogIn(false)
     firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log(user);
+      setLogIn(false)
       })
       .catch((error) => {
         const errorCode = error.code;

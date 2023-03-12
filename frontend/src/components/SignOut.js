@@ -4,10 +4,10 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 const SignOut = ({setLogIn}) => {
     const handleSignOut = () => {
-        setLogIn(true)
         firebase.auth().signOut()
-            .then(() => {
-                console.log('Signed out');
+        .then(() => {
+            console.log('Signed out');
+            setLogIn(true)
                 
             })
             .catch((error) => {

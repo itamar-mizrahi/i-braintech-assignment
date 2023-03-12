@@ -1,10 +1,14 @@
 // Import required modules
 const express = require('express');
 const admin = require('firebase-admin');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+
 
 // Initialize express app
 const app = express();
-
+app.use(cors())
 // Initialize Firebase app
 const serviceAccount = require('./serviceAccountKey.json');
 admin.initializeApp({

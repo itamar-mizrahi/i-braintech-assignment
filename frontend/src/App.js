@@ -1,10 +1,11 @@
 import "./App.css";
 import WorkoutList from ".//components/WorkoutList";
 import { useState } from "react";
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import SignIn from "./components/SignIn";
 import SignOut from "./components/SignOut";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAHVXFxYuv_TRdYZKJ41VJOj4IGhPGjhU4",
@@ -15,10 +16,11 @@ const firebaseConfig = {
   appId: "1:571073548594:web:ea832ab4ed0c339bbf072b",
   measurementId: "G-STMNQ0W413"
 };
+firebase.initializeApp(firebaseConfig);
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);

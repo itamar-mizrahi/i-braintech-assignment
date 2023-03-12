@@ -36,3 +36,64 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Set the background color to a dark shade of gray */
+body {
+  background-color: #333333;
+}
+
+/* Set the text color to white */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: #ffffff;
+}
+
+/* Style buttons with a dark background and light text */
+button,
+input[type="submit"],
+input[type="button"],
+a.button {
+  background-color: #222222;
+  color: #ffffff;
+}
+
+/* Style links with a light color */
+a {
+  color: #cccccc;
+}
+
+/* Add shadows to elements */
+.box {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Add hover styles to links */
+a:hover {
+  color: #ffffff;
+}
+
+/* Add a border radius to elements */
+.rounded {
+  border-radius: 5px;
+}
+
+/* Add padding and margins to elements */
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 800px;
+}
+
+/* Media query for small screens */
+@media only screen and (max-width: 600px) {
+  .container {
+    max-width: 400px;
+  }
+}

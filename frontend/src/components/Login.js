@@ -4,22 +4,23 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import axios from "axios";
 import WorkoutList from "./WorkoutList";
+import AddWorkout from "./AddWorkout";
 
 
 const Login = ({ setLogIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [workouts, setWorkouts] = useState([]);
+  const [signed, setSigned] = useState(false);
+  const [IsLoading, setIsLoading] = useState(false);
 
   const getWorkouts = async (userId) => {
     try {
       const response = await axios.get(
         `http://localhost:3000/users/${userId}/workouts`
       );
-      // console.log("Workouts for user:", response.data);
-      // setWorkouts([...response.data]);
-      // console.log([...response.data]);
-      return response.data;
+      setWorkouts(response.data.filter(x => x));
+      setIsLoading(true)
     } catch (err) {
       console.error(err);
     }
@@ -33,9 +34,9 @@ const Login = ({ setLogIn }) => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        let data = await getWorkouts("vMJrGDjiIzfGK7ZYWSSO");
-        console.log(data);
-        setWorkouts(data);
+        getWorkouts("vMJrGDjiIzfGK7ZYWSSO");
+
+        setSigned(true)
         // setLogIn(false);
       })
       .catch((error) => {
@@ -47,7 +48,6 @@ const Login = ({ setLogIn }) => {
 
   return (
     <div>
-      <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
@@ -61,8 +61,8 @@ const Login = ({ setLogIn }) => {
         />
         <button type="submit">Sign In</button>
       </form>
-      <WorkoutList workouts={workouts}/>
-      
+      {IsLoading?<WorkoutList workouts={workouts}/>:(signed?<h1>Loading...</h1>:<div></div>)}
+      {signed&&<AddWorkout getWorkouts={getWorkouts}/>}
     </div>
   );
 };

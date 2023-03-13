@@ -2,7 +2,6 @@ import "./App.css";
 import { useState } from "react";
 import Login from "./components/Login";
 import SignOut from "./components/SignOut";
-import SignUp from "./components/SignUp";
 // import WorkoutList from ".//components/WorkoutList";
 import Dashboard from "./components/Dashboard";
 
@@ -28,7 +27,6 @@ function App() {
           <LoginCheck isLoggedIn={isLoggedIn} />
           {/* <Dashboard/>
           <WorkoutList /> */}
-          <SignUp />
         </div>
       </header>
     </div>

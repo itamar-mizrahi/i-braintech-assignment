@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import axios from "axios";
+import WorkoutList from "./WorkoutList";
+
 
 const Login = ({ setLogIn }) => {
   const [email, setEmail] = useState("");
@@ -59,30 +61,8 @@ const Login = ({ setLogIn }) => {
         />
         <button type="submit">Sign In</button>
       </form>
-      {workouts.length > 0 ? (
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Type</th>
-              <th>Duration (minutes)</th>
-              <th>Calories Burned</th>
-            </tr>
-          </thead>
-          <tbody>
-            {workouts.map((workout) => (
-              <tr key={workout.id}>
-                <td>{workout.date}</td>
-                <td>{workout.type}</td>
-                <td>{workout.duration}</td>
-                <td>{workout.caloriesBurned}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <p>No workouts found or need log in</p>
-      )}
+      <WorkoutList workouts={workouts}/>
+      
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import "./App.css";
-import WorkoutList from ".//components/WorkoutList";
 import { useState } from "react";
 import Login from "./components/Login";
 import SignOut from "./components/SignOut";
-import Dashboard from "./components/Dashboard";
 import SignUp from "./components/SignUp";
+// import WorkoutList from ".//components/WorkoutList";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);

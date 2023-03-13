@@ -1,28 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-function WorkoutList() {
-  const [workouts, setWorkouts] = useState([]);
+function WorkoutList({workouts}) {
 
-  useEffect(() => {
-    // Fetch the list of workouts from the backend API
-    fetch('/workouts')
-      .then(response => response.json())
-      .then(data => setWorkouts(data));
-  }, []);
 
   return (
     <div>
       <h2>My Workouts</h2>
-      <ul>
-        {workouts.map(workout => (
-          <li key={workout.id}>
-            <div>Date: {workout.date}</div>
-            <div>Type: {workout.type}</div>
-            <div>Duration: {workout.duration} minutes</div>
-            <div>Calories burned: {workout.caloriesBurned}</div>
-          </li>
-        ))}
-      </ul>
+      {workouts.length > 0 ? (
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Duration (minutes)</th>
+              <th>Calories Burned</th>
+            </tr>
+          </thead>
+          <tbody>
+            {workouts.map((workout,id) => (
+              <tr key={id}>
+                <td>{workout.date}</td>
+                <td>{workout.type}</td>
+                <td>{workout.duration}</td>
+                <td>{workout.caloriesBurned}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No workouts found or need log in</p>
+      )}
     </div>
   );
 }

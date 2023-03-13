@@ -53,6 +53,7 @@ h5,
 h6,
 p {
   color: #ffffff;
+  margin:5px;
 }
 
 /* Style buttons with a dark background and light text */
@@ -62,6 +63,7 @@ input[type="button"],
 a.button {
   background-color: #222222;
   color: #ffffff;
+  margin:5px;
 }
 
 /* Style links with a light color */
@@ -96,4 +98,8 @@ a:hover {
   .container {
     max-width: 400px;
   }
+}
+
+th, td {
+  border: 1px solid black;
 }

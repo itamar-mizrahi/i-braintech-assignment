@@ -25,8 +25,11 @@ function App() {
           <h1>Fitness Tracking App</h1>
 
           <LoginCheck isLoggedIn={isLoggedIn} />
-          {/* <Dashboard/>
-          <WorkoutList /> */}
+          <iframe
+            src="https://copilotstudio.microsoft.com/environments/Default-3c678821-7750-47a3-937f-2661439abb7a/bots/cr971_personalTrainer/webchat?__version__=2"
+            title="Fitness Tracking App Chat"
+            style={{ width: "100%", height: "100%" }}
+          ></iframe>
         </div>
       </header>
     </div>
